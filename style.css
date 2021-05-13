@@ -1,0 +1,382 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #22254b;
+    --secondary-color: #373b69;
+}
+
+body {
+    background-color: var(--primary-color);
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--secondary-color);
+    padding: 0 1rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+main {
+    margin-top: 200px;
+}
+
+/* title */
+h2 {
+    text-align: center;
+    color: white;
+    width: 100%;
+    font-size: 29px;
+    cursor: pointer;
+}
+
+/* search bar styling */
+#form {
+    width: 70%;
+}
+
+.search {
+    background-color: white;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.79);
+    border-radius: 50px;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    width: 100%;
+}
+
+.search::placeholder {
+    color: #7378c5;
+}
+
+.search:focus {
+    outline: none;
+    background-color: white;
+}
+
+.no-search {
+    color: white;
+    margin-top: 240px;
+    text-align: center;
+    font-size: 20px;
+    display: none;
+}
+
+/* Dropdown styling */
+.dropdown {
+    border-radius: 4px;
+    box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.79);
+    background-color: white;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0px 10px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    margin-top: 3px;
+    height: 40px;
+    width: 28%;
+}
+
+/* Filter text */
+.dropdown p {
+    align-self: center;
+}
+
+/* Filter arrow */
+.dropdown .fa-chevron-down {
+    margin-top: 14px;
+    margin-left: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown ul {
+    box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.79);
+    border-radius: 4px;
+    background-color: white;
+    display: none;
+    padding: 10px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    list-style-type: none;
+    width: 100%;
+    z-index: 10;
+}
+
+.dropdown ul li {
+    margin: 10px 0;
+}
+
+.dropdown.open ul {
+    display: block;
+}
+
+/* cards */
+.countries-wrapper {
+    display: block;
+    width: 300px;
+    height: 550px;
+    margin: 50px auto 1px;
+    background-color: var(--secondary-color);
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px,
+        rgba(0, 0, 0, 0.09) 0px 4px 2px,
+        rgba(0, 0, 0, 0.09) 0px 8px 4px,
+        rgba(0, 0, 0, 0.09) 0px 16px 8px,
+        rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+/* cards content */
+.country {
+    margin: 0px 47px;
+}
+
+.countries-wrapper img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.country-info {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 1rem;
+    letter-spacing: 0.5px;
+    height: 65%;
+}
+
+.country-info h3 {
+    color: white;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.country-info p {
+    padding: 0.5px;
+    margin: 10px;
+}
+
+.country-info a {
+    margin-bottom: 1rem;
+}
+
+/* The see more button */
+.country-btn {
+    text-align: center;
+    align-self: center;
+    text-decoration: none;
+    color: white;
+    background: var(--primary-color);
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0.75rem 35px;
+    width: 175px;
+    border: 1px solid white;
+    border-radius: 2rem;
+    margin-top: 10px;
+    box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.79);
+}
+
+.country-btn:hover {
+    background: hsl(236, 32%, 17%);
+}
+
+.country-btn:active {
+    transform: scale(0.98);
+}
+
+
+/* The modal window */
+.country-details {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background: var(--primary-color);
+    border-radius: 1rem;
+    width: 90%;
+    height: 90%;
+    display: none;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 4rem 4rem;
+}
+
+.country-details::-webkit-scrollbar {
+    width: 10px;
+}
+
+.country-details::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 2rem;
+}
+
+/* js related */
+.showDetails {
+    display: block;
+}
+
+/* Modal content */
+.country-details-content {
+    position: relative;
+    width: auto;
+    text-align: center;
+}
+
+.country-details-content div {
+    padding: 0.5rem;
+}
+
+.country-details-content img {
+    width: 200px;
+    margin: 0 auto;
+    display: block;
+}
+
+.country-details-content a {
+    color: white;
+}
+
+/* modal close button */
+.modal-close-button {
+    position: fixed;
+    right: 2rem;
+    top: 2rem;
+    font-size: 1rem;
+    background: white;
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+/* up button */
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 4px;
+}
+
+#myBtn:hover {
+    background-color: #555;
+}
+
+#myBtn:active {
+    transform: scale(0.98);
+}
+
+/* Media */
+@media screen and (min-width:600px) {
+    .country {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    #main {
+        margin-top: 150px;
+    }
+
+    .dropdown {
+        width: 100px;
+    }
+
+    .country-details {
+        width: 75%;
+    }
+}
+
+@media screen and (min-width:768px) {
+    header {
+        flex-wrap: nowrap;
+        padding: 1rem;
+    }
+
+    h2 {
+        padding: 0;
+        margin: 0;
+        width: auto;
+    }
+
+    #form {
+        width: 40%;
+    }
+
+    #main {
+        margin-top: 90px;
+    }
+
+    .country {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .country-details {
+        width: 65%;
+    }
+
+    .country-details-content img {
+        width: 300px;
+    }
+
+    .modal-close-button {
+        font-size: 1.8rem;
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media screen and (min-width:992px) {
+    .country {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .country-details {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .country {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .country-details {
+        width: 40%;
+    }
+}
+
+@media screen and (min-width:1600px) {
+    .country {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
