@@ -142,7 +142,7 @@ h2 {
 
 /* cards content */
 .country {
-    margin: 0px 47px;
+    margin: 0px 25px;
 }
 
 .countries-wrapper img {
@@ -338,6 +338,7 @@ h2 {
 
     .country {
         grid-template-columns: repeat(2, 1fr);
+        width: 47px;
     }
 
     .country-details {
