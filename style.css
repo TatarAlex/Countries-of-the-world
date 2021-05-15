@@ -338,7 +338,7 @@ h2 {
 
     .country {
         grid-template-columns: repeat(2, 1fr);
-        width: 47px;
+        margin: 0 40px;
     }
 
     .country-details {
